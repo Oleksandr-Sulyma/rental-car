@@ -1,0 +1,97 @@
+/* =================================
+   BASE LINK STYLES
+==================================== */
+.link-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: transparent !important;
+    border: 1px solid transparent !important; 
+}
+
+/* Текстові лінки */
+.link-text {
+    width: auto;
+    min-width: max-content;
+    height: 27px;
+    padding: 0 8px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 150%;
+    color: var(--color-neutral-darkest);
+}
+
+/* Іконки-лінки */
+.link-icon {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    padding: 2px;
+    color: var(--color-neutral-darkest);
+}
+
+/* =================================
+   HOVER / FOCUS / ACTIVE (Light Theme)
+==================================== */
+
+/* При фокусі та ховері з'являється рамка кольору тексту */
+.link-base:hover, 
+.link-base:focus-visible {
+    border: 1px solid var(--color-neutral-darkest) !important;
+    outline: none;
+}
+
+.link-base:active {
+    background-color: var(--color-neutral-lighter) !important;
+    border: 1px solid var(--color-neutral-darkest) !important;
+}
+
+/* =================================
+   DISABLED STATE (Універсальний)
+==================================== */
+.link-base:disabled,
+.link-base.is-disabled {
+    opacity: 0.3 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+    border-color: transparent !important;
+    background-color: transparent !important;
+}
+
+/* =================================
+   DARK THEME ADAPTATION
+==================================== */
+[data-theme='dark'] .link-base {
+    color: var(--color-white) !important;
+}
+
+/* Рамка в темній темі стає білою */
+[data-theme='dark'] .link-base:hover,
+[data-theme='dark'] .link-base:focus-visible {
+    border: 1px solid var(--color-white) !important;
+}
+
+[data-theme='dark'] .link-base:active {
+    background-color: var(--opacity-white-10) !important;
+    border: 1px solid var(--color-white) !important;
+}
+
+/* =================================
+   CONTEXTUAL OVERRIDES (Footer/Header)
+==================================== */
+
+/* Гарантуємо, що контекстні лінки наслідують логіку прозорості */
+.link-footer-pc, 
+.link-footer-mobile,
+.link-header-inner,
+.link-header-main {
+    background-color: transparent !important;
+    /* Колір тексту береться з ваших контекстних стилів, 
+       але рамка при ховері буде працювати згідно з .link-base */
+}

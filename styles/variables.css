@@ -1,0 +1,41 @@
+:root {
+  /* --- COLORS --- */
+  --main: #101828; /* Основний колір тексту (Dark Navy) */
+  --gray: #8d929a; /* Другорядний текст */
+  --gray-light: #dadde1; /* Межі, розділювачі */
+  --badges: #f2f4f7; /* Фон для тегів/міток */
+  --inputs: #f7f7f7; /* Фон полів вводу */
+  --white: #fff; /* Чистий білий */
+  --button: #3470ff; /* Основний колір кнопок (Blue) */
+  --button-hover: #0b44cd; /* Колір кнопки при наведенні */
+  --color-red: #b00101; /* Помилки або акценти */
+  --text-main: var(--main);
+  --text-gray: var(--gray);
+  /* --- FONT FAMILIES --- */
+  /* Manrope - основний шрифт (357+ використань) */
+  --font-family: "Manrope", sans-serif;
+  /* Inter - додатковий шрифт (58+ використань) */
+  --second-family: "Inter", sans-serif;
+
+  /* --- FONT SIZES --- */
+  --fs-md: 24px;
+  --fs-md-second: 20px; /* Заголовки */
+  --fs-base: 16px; /* Стандартний текст (Body) */
+  --fs-sm: 14px; /* Підписи, дрібний текст */
+  --fs-xs: 12px; /* Дуже дрібні деталі */
+
+  /* --- FONT WEIGHTS --- */
+  --fw-regular: 400; /* Manrope Regular (157), Inter Regular (35) */
+  --fw-medium: 500; /* Manrope Medium (200), Inter Medium (15) */
+  --fw-semibold: 600; /* Manrope SemiBold (55), Inter Semi Bold (8) */
+  --fw-bold: 700; /* Manrope Bold (1) */
+
+  /* --- LINE HEIGHTS --- */
+  --lh-base: 1.333; /* Основний інтервал */
+  --lh-md: 1.25; /* Для середніх заголовків */
+  --lh-sm: 1.2; /* Для великих заголовків */
+
+  /* --- UI ELEMENTS --- */
+  --radius: 12px; /* Скруглення карток та кнопок */
+  --transition-fast: 0.2s ease; /* анімація для hover-ефектів */
+}

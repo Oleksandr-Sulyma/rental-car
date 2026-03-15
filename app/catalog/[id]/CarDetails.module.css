@@ -1,0 +1,113 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: 640px 1fr;
+  grid-template-rows: 512px 518px;
+  gap: 40px 72px;
+  max-width: 1200px;
+  margin: 152px 0 74px 0;
+}
+
+.imageContainer {
+  background: var(--inputs);
+  border-radius: 19px;
+}
+
+.formContainer {
+  background: var(--badges);
+  border-radius: 10px;
+}
+
+.contentWrapper {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mainImage {
+  border-radius: 19px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.details {
+  margin-top: 20px;
+  margin-bottom: 68px;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+.detailsHeader {
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.price {
+  margin-bottom: 32px;
+}
+
+
+.location {
+  margin-right: 16px;
+  margin-left: 4px;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 772px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+.sectionTitle {
+  font-family: var(--font-family);
+  font-weight: 600; /* SemiBold */
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828; /* Твій основний темний колір */
+  margin: 0 0 16px 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: #101828;
+}
+
+.itemText {
+  font-family: var(--font-family);
+  font-weight: 500; /* Medium */
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}

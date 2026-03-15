@@ -1,0 +1,62 @@
+.filtersSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+} 
+
+.filtersContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 84px auto 56px auto;
+  gap: 16px;
+  position: relative;
+  z-index: 100;
+}
+
+.mileageGroup {
+  display: flex;
+  flex-direction: column;
+  height: 68px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  height: 16px;
+}
+
+.inputsWrapper {
+  display: flex;
+  height: 44px;
+  background-color: var(--inputs);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.inputWithPrefix {
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  background-color: var(--inputs);
+}
+
+.inputWithPrefix:first-child {
+  border-right: 1px solid rgba(138, 138, 137, 0.2);
+}
+
+.prefix {
+  margin-right: 5px;
+}
+
+.mileageInputLeft,
+.mileageInputRight {
+  width: 160px; 
+  height: 100%;
+  padding-right: 24px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}

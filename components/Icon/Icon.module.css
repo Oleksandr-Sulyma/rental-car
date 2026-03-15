@@ -1,0 +1,20 @@
+.icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  transition: color 0.3s, fill 0.3s, transform 0.2s;
+}
+
+.icon-heart {
+  color: var(--white);
+  fill: none;
+}
+
+.icon-heart.active {
+  color: var(--button);
+  fill: var(--button);
+}
+
+.icon-heart:hover {
+  transform: scale(1.1);
+}

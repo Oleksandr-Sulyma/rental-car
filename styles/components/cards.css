@@ -1,0 +1,94 @@
+/* =========================
+   CARDS SYSTEM
+========================= */
+
+/* Blog Card */
+.blog-card {
+  border: none;
+  border-radius: 16px;
+  /* Використовуємо семантичну змінну з макета */
+  background: var(--color-scheme-2-foreground);
+  display: flex;
+  gap: 24px;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(65, 105, 225, 0.15);
+}
+
+/* Адаптивні розміри Blog Card (згідно з макетом) */
+@media (max-width: 767px) {
+  .blog-card {
+    /* width: 335px; */
+    height: 575px;
+    flex-direction: column;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .blog-card {
+    width: 340px;
+    height: 578px;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1440px) {
+  .blog-card {
+    width: 421px;
+    height: 677px;
+    flex-direction: column;
+  }
+}
+
+/* =========================
+   TRAVELER CARD
+========================= */
+
+.traveler-card {
+  border: none;
+  border-radius: 16px;
+  /* Використовуємо ту саму змінну для фону */
+  background: var(--color-scheme-2-foreground);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+/* Розміри Traveler Card */
+@media (max-width: 767px) {
+  .traveler-card {
+    width: 335px;
+    height: 575px;
+  }
+}
+@media (min-width: 768px) {
+  .traveler-card {
+    width: 340px;
+    height: 363px;
+  }
+}
+@media (min-width: 1440px) {
+  .traveler-card {
+    width: 310px;
+    height: 384px;
+  }
+}
+
+/* =========================
+   DARK THEME
+========================= */
+
+[data-theme='dark'] .blog-card,
+[data-theme='dark'] .traveler-card {
+  border: 1px solid var(--opacity-white-15);
+}

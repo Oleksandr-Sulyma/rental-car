@@ -1,0 +1,87 @@
+body {
+  font-family: var(--font-family);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-base);
+  color: var(--main);
+  background-color: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* HEADINGS */
+h1 {
+  font-weight: var(--fw-bold);
+  font-size: 60px;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--white);
+}
+
+h2 {
+  font-weight: var(--fw-semibold);
+  font-size: 24px;
+  line-height: 1.33333;
+  color: var(--main);
+}
+
+h3 {
+  font-weight: var(--fw-semibold);
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--main);
+}
+
+h4 {
+  font-weight: var(--fw-medium);
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+.text-main {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+.text-gray-medium {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--gray);
+}
+
+.text-secondary {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.33333;
+  color: var(--gray);
+}
+
+.hero-description {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: var(--white);
+  text-align: center;
+}
+
+.nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+.nav-link.active {
+  color: var(--button-hover); /* #0b44cd */
+}
+
+.text-accent {
+  color: var(--button);
+}
+
+p {
+  margin: 0;
+}

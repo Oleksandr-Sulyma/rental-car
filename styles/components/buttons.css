@@ -1,0 +1,59 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: none;
+  
+  font-family: var(--font-family); 
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-base);
+  line-height: var(--lh-md);
+  
+  border-radius: var(--radius);
+  height: 44px;
+  transition: all var(--transition-fast);
+}
+
+.btn-main, .btn-search {
+  background-color: var(--button);
+  color: var(--white);
+}
+
+.btn-main {
+  width: 276px;
+}
+
+.btn-search {
+  width: 156px;
+}
+
+.btn-loader {
+  border: 1px solid var(--button);
+  background-color: transparent;
+  width: 156px;
+}
+
+
+.btn-main:hover, 
+.btn-search:hover {
+  background-color: var(--button-hover);
+
+}
+
+.btn-loader:hover {
+  border: 1px solid var(--button-hover);
+}
+
+/* КНОПКИ-ІКОНКИ (Квадратні) */
+.btn-icon {
+  width: 48px;
+  height: 48px;
+  padding: 6px;
+}
+.btn-icon--header {
+  width: 35px;
+  height: 35px;
+  padding: 4px;
+}
