@@ -1,8 +1,32 @@
+import Image from "next/image";
 import { fetchCarById } from "@/lib/api/serverApi";
 import RentalForm from "@/components/RentalForm/RentalForm";
 import { notFound } from "next/navigation";
 import css from "./CarDetails.module.css";
 import Icon from "@/components/Icon/Icon";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const car = await fetchCarById(params.id);
+
+  if (!car) {
+    return {
+      title: "Car not found",
+    };
+  }
+
+  return {
+    title: `${car.brand} ${car.model}`,
+    description: `Rent a ${car.brand} ${car.model} starting from ${car.rentalPrice}$.`,
+    openGraph: {
+      images: [car.img],
+    },
+  };
+}
 
 interface CarDetailsProps {
   params: Promise<{ id: string }>;
@@ -16,16 +40,18 @@ export default async function CarDetailsPage({ params }: CarDetailsProps) {
     if (!car) return notFound();
 
     const addressParts = car.address.split(", ");
-    const city = addressParts[1];
-    const country = addressParts[2];
+    const city = addressParts[1] ?? "";
+    const country = addressParts[2] ?? "";
 
     return (
       <section className="container">
         <div className={css.gridContainer}>
           <div className={css.imageContainer}>
-            <img
+            <Image
               src={car.img}
               alt={`${car.brand} ${car.model}`}
+              width={640}
+              height={512}
               className={css.mainImage}
             />
           </div>
@@ -44,7 +70,7 @@ export default async function CarDetailsPage({ params }: CarDetailsProps) {
               </div>
 
               <div className={`${css.textWrapper} ${css.detailsLocation}`}>
-                <Icon id="location" className={`icon ${css.icon} `} />
+                <Icon id="location" className={`icon ${css.icon}`} />
                 <p className={`text-main ${css.location}`}>
                   {" "}
                   {city}, {country}
@@ -57,56 +83,64 @@ export default async function CarDetailsPage({ params }: CarDetailsProps) {
                 </span>
               </div>
               <h2 className={`text-accent ${css.price}`}>${car.rentalPrice}</h2>
-              <p className='text-main'> {car.description}</p>
+              <p className="text-main"> {car.description}</p>
             </div>
-            
-<div className={css.infoWrapper}>
-  <div className={css.section}>
-    <h3 className={css.sectionTitle}>Rental Conditions:</h3>
-    <ul className={css.list}>
-      {car.rentalConditions.map((condition, index) => (
-        <li key={index} className={css.listItem}>
-          <Icon id="check-circle" className={css.icon} />
-          <span className={css.itemText}>{condition}</span>
-        </li>
-      ))}
-    </ul>
-  </div>
 
-  <div className={css.section}>
-    <h3 className={css.sectionTitle}>Car Specifications:</h3>
-    <ul className={css.list}>
-      <li className={css.listItem}>
-        <Icon id="calendar" className={css.icon} />
-        <span className={css.itemText}>Year: {car.year}</span>
-      </li>
-      <li className={css.listItem}>
-        <Icon id="car" className={css.icon} />
-        <span className={css.itemText}>Type: {car.type}</span>
-      </li>
-      <li className={css.listItem}>
-        <Icon id="fuel-pump" className={css.icon} />
-        <span className={css.itemText}>Fuel Consumption: {car.fuelConsumption}</span>
-      </li>
-      <li className={css.listItem}>
-        <Icon id="gear" className={css.icon} />
-        <span className={css.itemText}>Engine Size: {car.engineSize}</span>
-      </li>
-    </ul>
-  </div>
+            <div className={css.infoWrapper}>
+              <div className={css.section}>
+                <h3 className={css.sectionTitle}>Rental Conditions:</h3>
+                <ul className={css.list}>
+                  {car.rentalConditions.map((condition, index) => (
+                    <li key={condition} className={css.listItem}>
+                      <Icon id="check-circle" className={css.icon} />
+                      <span className={css.itemText}>{condition}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-  <div className={css.section}>
-    <h3 className={css.sectionTitle}>Accessories and functionalities:</h3>
-    <ul className={css.list}>
-      {[...car.accessories, ...car.functionalities].map((item, index) => (
-        <li key={index} className={css.listItem}>
-          <Icon id="check-circle" className={css.icon} />
-          <span className={css.itemText}>{item}</span>
-        </li>
-      ))}
-    </ul>
-  </div>
-</div>
+              <div className={css.section}>
+                <h3 className={css.sectionTitle}>Car Specifications:</h3>
+                <ul className={css.list}>
+                  <li className={css.listItem}>
+                    <Icon id="calendar" className={css.icon} />
+                    <span className={css.itemText}>Year: {car.year}</span>
+                  </li>
+                  <li className={css.listItem}>
+                    <Icon id="car" className={css.icon} />
+                    <span className={css.itemText}>Type: {car.type}</span>
+                  </li>
+                  <li className={css.listItem}>
+                    <Icon id="fuel-pump" className={css.icon} />
+                    <span className={css.itemText}>
+                      Fuel Consumption: {car.fuelConsumption}
+                    </span>
+                  </li>
+                  <li className={css.listItem}>
+                    <Icon id="gear" className={css.icon} />
+                    <span className={css.itemText}>
+                      Engine Size: {car.engineSize}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className={css.section}>
+                <h3 className={css.sectionTitle}>
+                  Accessories and functionalities:
+                </h3>
+                <ul className={css.list}>
+                  {[...car.accessories, ...car.functionalities].map(
+                    (item, index) => (
+                      <li key={index} className={css.listItem}>
+                        <Icon id="check-circle" className={css.icon} />
+                        <span className={css.itemText}>{item}</span>
+                      </li>
+                    ),
+                  )}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>

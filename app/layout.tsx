@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Inter } from "next/font/google";
 
-
 import "@/styles/variables.css";
 import "@/styles/base.css";
 import "@/styles/layout.css";
@@ -17,25 +16,47 @@ import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import { SITE_NAME, BASE_URL } from "@/lib/constants/seo";
 import { Toaster } from "react-hot-toast";
 
-// export const metadata: Metadata = {
-//   title: SITE_NAME,
-//   description: 'Simple and efficient note management application.',
-//   openGraph: {
-//     title: SITE_NAME,
-//     description: 'Simple and efficient note management application.',
-//     url: BASE_URL,
-//     siteName: SITE_NAME,
-//     images: [
-//       {
-//         url: OG_IMAGE,
-//         width: 1200,
-//         height: 630,
-//         alt: SITE_NAME,
-//       },
-//     ],
-//     type: 'website',
-//   },
-// };
+export const metadata: Metadata = {
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: "Fast and easy car rental service. Choose from a wide range of cars for your next trip.",
+  metadataBase: new URL(BASE_URL),
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+  openGraph: {
+    title: SITE_NAME,
+    description: "Premium car rental service at affordable prices.",
+    url: BASE_URL,
+    siteName: SITE_NAME,
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: `${SITE_NAME} - Premium Car Rental`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: "Premium car rental service at affordable prices.",
+    images: ["/og-image.webp"],
+  },
+};
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -59,12 +80,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manrope.variable} ${inter.variable}`}>
-        <Header />
-        <main>{children}</main>
-
-        <Toaster position="top-right" reverseOrder={false} />
-
-        <div id="modal-root"></div>
+        <TanStackProvider>
+          <Header />
+          <main>{children}</main>
+          {modal}
+          <Toaster position="top-right" reverseOrder={false} />
+          <div id="modal-root"></div>
+        </TanStackProvider>
       </body>
     </html>
   );

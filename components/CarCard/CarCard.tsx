@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Car } from "@/types/types";
 import css from "./CarCard.module.css";
 import IconHeart from "../Icon/IconHeart";
@@ -11,19 +12,18 @@ type Props = {
 
 const CarCard = ({ car }: Props) => {
   const addressParts = car.address.split(", ");
-  const city = addressParts[1];
-  const country = addressParts[2];
+  const city = addressParts[1] ?? "";
+  const country = addressParts[2] ?? "";
 
   return (
     <div className={css.carCard}>
       <div className={css.imageWrapper}>
-        <img
+        <Image
           src={car.img}
           alt={`${car.brand} ${car.model}`}
-          className={css.image}
           width={276}
           height={268}
-          loading="lazy"
+          className={css.image}
         />
 
         <div className={`${css.favoriteBtn} favorite-wrapper`}>
@@ -51,7 +51,7 @@ const CarCard = ({ car }: Props) => {
         </p>
       </div>
 
-      <Link href={`/catalog/${car.id}`} className="btn btn-main">
+      <Link href={`/catalog/${car.id}`} className={`btn btn-main ${css.link}`}>
         Read more
       </Link>
     </div>
