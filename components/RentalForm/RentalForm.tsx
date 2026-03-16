@@ -6,11 +6,16 @@ import * as z from "zod";
 import toast from "react-hot-toast";
 import DatePicker, { registerLocale } from "react-datepicker";
 import { enGB } from "date-fns/locale/en-GB";
+import type { Car } from "@/types/types"; 
 
 import "react-datepicker/dist/react-datepicker.css";
 import css from "./RentalForm.module.css";
 
 registerLocale("en-GB", enGB);
+
+interface RentalFormProps {
+  car: Car;
+}
 
 const rentalSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -28,7 +33,7 @@ type RentalFormData = {
   comment?: string;
 };
 
-export default function RentalForm() {
+export default function RentalForm({ car }: RentalFormProps) {
   const {
     register,
     handleSubmit,
@@ -47,7 +52,7 @@ export default function RentalForm() {
   });
 
   const onSubmit: SubmitHandler<RentalFormData> = (data) => {
-    console.log("Order Data:", data);
+    console.log("Order Data:", data, "for car:", car.id);
     toast.success("Rental successful! Our manager will contact you soon.");
     reset();
   };

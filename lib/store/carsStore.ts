@@ -16,7 +16,7 @@ interface CarsState {
 
 export const carsStore = create<CarsState>((set, get) => ({
   cars: [],
-  filters: {},
+  filters: {} as CarQueryParams,
   page: 1,
   totalPages: 1,
   isLoading: false,

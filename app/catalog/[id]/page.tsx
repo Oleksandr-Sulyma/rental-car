@@ -7,7 +7,8 @@ import Icon from "@/components/Icon/Icon";
 import type { Metadata } from "next";
 
 interface CarDetailsProps {
-  params: { id: string } | Promise<{ id: string }>;
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export async function generateMetadata({ params }: CarDetailsProps): Promise<Metadata> {
@@ -45,11 +46,12 @@ export default async function CarDetailsPage({ params }: CarDetailsProps) {
             width={640}
             height={512}
             className={css.mainImage}
+            priority
           />
         </div>
 
         <div className={css.formContainer}>
-          <RentalForm />
+          <RentalForm car={car} />
         </div>
 
         <div className={css.contentWrapper}>
@@ -83,7 +85,7 @@ export default async function CarDetailsPage({ params }: CarDetailsProps) {
             <div className={css.section}>
               <h3 className={css.sectionTitle}>Rental Conditions:</h3>
               <ul className={css.list}>
-                {car.rentalConditions.map((condition) => (
+                {car.rentalConditions.map((condition: string) => (
                   <li key={condition} className={css.listItem}>
                     <Icon id="check-circle" className={css.icon} />
                     <span className={css.itemText}>{condition}</span>

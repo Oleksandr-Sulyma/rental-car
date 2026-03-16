@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { carsStore } from "@/lib/store/carsStore";
 import Filters from "@/components/Filters/Filters";
 import CarCard from "@/components/CarCard/CarCard";
-import { CircleLoader } from "react-spinners";
+import Loader from "@/components/Loader/Loader";
 import css from "./Catalog.module.css";
 
 export default function CatalogClient() {
@@ -40,7 +40,7 @@ export default function CatalogClient() {
 
       {isInitialLoading ? (
         <div className={css.loaderWrapper}>
-          <CircleLoader color="#3470ff" size={80} />
+          <Loader size={80} />
         </div>
       ) : (
         <>
@@ -63,7 +63,7 @@ export default function CatalogClient() {
           {showLoadMore && (
             <div className={css.loadMoreContainer}>
               {isLoading ? (
-                <CircleLoader color="#3470ff" size={40} />
+                <Loader size={40} />
               ) : (
                 <button className="btn btn-loader" onClick={handleLoadMore}>
                   Load More
