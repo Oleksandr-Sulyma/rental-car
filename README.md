@@ -1,70 +1,61 @@
 # Rental Car Service
 
-A modern, high-performance car rental application built with **Next.js 15 (App Router)**. This project features a robust proxy architecture to handle API requests securely and efficiently.
+A modern web application for car rentals built with Next.js 16 and React 19. This platform allows users to browse a diverse catalog of cars, filter them by specific criteria, and book their preferred vehicle through an interactive interface.
 
 ## 🚀 Key Features
 
-* **Car Catalog**: Browse a wide range of vehicles with advanced filtering and pagination.
-* **Detailed Car Views**: Deep-dive into specifications, rental conditions, and accessories for each car.
-* **Zustand State Management**: Seamless and fast client-side state handling.
-* **API Proxy Architecture**: Secure communication with the external backend via Next.js Route Handlers.
-* **Responsive Design**: Fully optimized for mobile, tablet, and desktop views.
+- **Car Catalog**: Comprehensive list of available cars with real-time data.
+- **Detailed Car Pages**: Individual pages for each vehicle featuring full technical specifications and rental conditions.
+- **Dynamic Search & Filtering**: Easy-to-use filters for brands and price ranges.
+- **Booking Form**: Fully validated reservation form with date selection.
+- **Responsive Design**: Optimized for seamless experience on mobile, tablet, and desktop devices.
+- **SEO Optimized**: Dynamic metadata generation for every car listing.
 
 ## 🛠 Tech Stack
 
-* **Framework**: [Next.js 15](https://nextjs.org/)
-* **Styling**: CSS Modules
-* **State Management**: [Zustand](https://zustand-demo.pmnd.rs/)
-* **HTTP Client**: [Axios](https://axios-http.com/)
-* **Icons**: Lucide React / Custom SVG Icons
-* **Notifications**: React Hot Toast
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Library**: [React 19](https://react.dev/)
+- **Forms**: [React Hook Form](https://react-hook-form.com/) with [Zod](https://zod.dev/) validation
+- **Styling**: CSS Modules
+- **State Management**: React Hooks & Context API
+- **Deployment**: [Vercel](https://vercel.com/)
 
-## 🏗 Architecture Overview
+## 📦 Installation and Setup
 
-The project uses a **Proxy Pattern** to communicate with the GoIT Car Rental API.
-
-1. **Client Layer**: React components trigger actions via Zustand stores.
-2. **Proxy Layer**: Next.js Route Handlers (`/api/catalog`, `/api/brands`) intercept client requests, attach necessary logic, and forward them to the external API.
-3. **External API**: The backend receives requests from our server, ensuring better security and bypassing CORS issues.
-
-## 🏁 Getting Started
-
-### 1. Prerequisites
-
-* Node.js 20.x or later
-* npm / yarn / pnpm
-
-### 2. Environment Variables
-
-Create a `.env.local` file in the root directory and add your API URL:
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost:3000
+### 1. Clone the repository
+```bash
+git clone [https://github.com/Oleksandr-Sulyma/rental-car.git](https://github.com/Oleksandr-Sulyma/rental-car.git)
+cd rental-car
 
 ```
 
-### 3. Installation
+### 2. Install dependencies
 
 ```bash
 npm install
 
 ```
 
-### 4. Run Development Server
+### 3. Run the development server
 
 ```bash
 npm run dev
 
 ```
 
-Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) to see the application.
+Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) with your browser to see the result.
 
-## 📖 Project Structure
+### 4. Build for production
 
-* `/app` - Next.js App Router (Pages and API Routes).
-* `/components` - Reusable UI components (CarCard, Filters, RentalForm).
-* `/lib/store` - Zustand store for global state.
-* `/lib/api` - Axios instances for client-server and server-backend communication.
-* `/types` - TypeScript interfaces and types.
+```bash
+npm run build
+npm start
 
----
+```
+
+## 👤 Author
+
+**Oleksandr Sulyma**
+
+* GitHub: [@Oleksandr-Sulyma](https://www.google.com/search?q=https://github.com/Oleksandr-Sulyma)
+* Role: Full Stack Developer (Next.js / React focus)
