@@ -4,7 +4,8 @@ import type { Car,CarQueryParams, CarsResponse, BrandsResponse  } from '@/types/
 export const fetchCars= async (params: CarQueryParams): Promise<CarsResponse> => {
   const { data } = await nextServer.get<CarsResponse>('/catalog', {
     params: { 
-      limit: String(12),
+      page: 1,
+      limit: 12,
       ...params },
   });
   return data;
