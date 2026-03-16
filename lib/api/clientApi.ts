@@ -1,8 +1,8 @@
-import { api } from './api';
+import { nextServer } from './api';
 import type { Car,CarQueryParams, CarsResponse, BrandsResponse  } from '@/types/types';
 
 export const fetchCars= async (params: CarQueryParams): Promise<CarsResponse> => {
-  const { data } = await api.get<CarsResponse>('/cars', {
+  const { data } = await nextServer.get<CarsResponse>('/catalog', {
     params: { 
       limit: String(12),
       ...params },
@@ -13,6 +13,7 @@ export const fetchCars= async (params: CarQueryParams): Promise<CarsResponse> =>
 
 
 export const fetchBrands = async (): Promise<BrandsResponse> => {
-  const {data} = await api.get<BrandsResponse>('/brands');
+  const {data} = await nextServer.get<BrandsResponse>('/brands');
   return data;
 }
+

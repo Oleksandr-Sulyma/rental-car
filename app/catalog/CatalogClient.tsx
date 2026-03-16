@@ -8,7 +8,6 @@ import { CircleLoader } from "react-spinners";
 import css from "./Catalog.module.css";
 
 export default function CatalogClient() {
-
   const cars = carsStore((s) => s.cars);
   const setFilters = carsStore((s) => s.setFilters);
   const loadMore = carsStore((s) => s.loadMore);
@@ -55,10 +54,7 @@ export default function CatalogClient() {
             <div className={css.noResultsWrapper}>
               <h3>No cars found</h3>
 
-              <button
-                className="btn btn-main"
-                onClick={() => setFilters({})}
-              >
+              <button className="btn btn-main" onClick={() => setFilters({})}>
                 Reset Filters
               </button>
             </div>
@@ -69,10 +65,7 @@ export default function CatalogClient() {
               {isLoading ? (
                 <CircleLoader color="#3470ff" size={40} />
               ) : (
-                <button
-                  className="btn btn-loader"
-                  onClick={handleLoadMore}
-                >
+                <button className="btn btn-loader" onClick={handleLoadMore}>
                   Load More
                 </button>
               )}
